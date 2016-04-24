@@ -1,9 +1,8 @@
-#!usr/bin/env python3
+#!usr/bin/env
 """
 Contact App
 """
-from sys import exit
-import json
+import pickle
 
 class Contact(object):
     def __init__(self):
@@ -15,7 +14,8 @@ class Contact(object):
         new_contact()
 
     def reading(self):
-        x = json.load(open(contacts.txt))
+        a = "contact_list.txt"
+        x = pickle.load(open(a, 'r'))
         print x
 
 c = Contact()
@@ -24,10 +24,15 @@ def start():
     print "Welcome to Contacts Plus!\n Would you like to take a look at all your contacts?"
     contacts_answer = raw_input().lower()
     if contacts_answer == "yes":
+        print "Here is a list of all of your contacts saved so far:\n"
         c.reading()
     else:
         print "Would you like to add a contact?"
-        new_contact_first_name()
+        b = raw_input().lower()
+        if b == "yes":
+            new_contact_first_name()
+        else:
+            start()
 
 
 def new_contact_first_name():
@@ -50,6 +55,7 @@ def new_contact_last_name():
 
 
 def new_contact_phone_number():
+    a = "contact_list.txt"
     print "Please enter the phone number for the contact you are attempting to add."
     c.phone_number = raw_input().lower()
     if len(c.phone_number) < 10:
@@ -57,7 +63,7 @@ def new_contact_phone_number():
     else:
         NewContact = {c.first_name + ' ' + c.last_name: c.phone_number}
         print NewContact
-        json.dump(NewContact, open("contacts.txt", 'w'))
+        pickle.dump(NewContact, open(a, 'w'))
         print "Save Successful!"
 
 start()

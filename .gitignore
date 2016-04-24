@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-contacts.txt
+contact_list.txt
 
 # C extensions
 *.so
