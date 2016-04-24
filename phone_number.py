@@ -3,20 +3,7 @@
 Contact App
 """
 import pickle
-
-class Contact(object):
-    def __init__(self):
-        self.first_name = ""
-        self.last_name = ""
-        self.phone_number = ""
-
-    def writing(self):
-        new_contact()
-
-    def reading(self):
-        a = "contact_list.txt"
-        x = pickle.load(open(a, 'r'))
-        print x
+from models import Contact
 
 c = Contact()
 
@@ -24,7 +11,7 @@ def start():
     print "Welcome to Contacts Plus!\n Would you like to take a look at all your contacts?"
     contacts_answer = raw_input().lower()
     if contacts_answer == "yes":
-        print "Here is a list of all of your contacts saved so far:\n"
+        print "Here is a list of all of your contacts saved so far:"
         c.reading()
     else:
         print "Would you like to add a contact?"
