@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 contact_list.txt
+.idea
 
 # C extensions
 *.so
