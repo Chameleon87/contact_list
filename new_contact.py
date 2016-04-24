@@ -20,6 +20,8 @@ def new_contact_last_name():
     last_name_answer = raw_input().lower()
     if last_name_answer == "yes":
         new_contact_phone_number()
+    else:
+        new_contact_last_name()
 
 
 def new_contact_phone_number():
@@ -29,9 +31,4 @@ def new_contact_phone_number():
     if len(c.phone_number) < 10:
         print "please enter a phone number that contains 10 digits"
     else:
-        c.reading()
-        new_contact = {c.first_name + ' ' + c.last_name: c.phone_number}
-        new_dic = new_contact + c.reading()
-        print NewContact
-        pickle.dump(new_dict, open(a, 'wb'))
-        print "Save Successful!"
+        c.writing()
