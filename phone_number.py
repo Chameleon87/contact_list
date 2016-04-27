@@ -8,7 +8,7 @@ from new_contact import new_contact_first_name
 contact = Contact()
 
 
-def start():
+def main():
     print "Welcome to Contacts Plus!\n Would you like to take a look at all your contacts?"
     contacts_answer = raw_input().lower()
     if contacts_answer == "yes":
@@ -20,4 +20,6 @@ def start():
             new_contact_first_name(contact)
         else:
             start()
-start()
+            
+if __name__ == "__main__":
+    main()
