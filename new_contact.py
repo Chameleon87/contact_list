@@ -1,3 +1,5 @@
+
+
 def new_contact_first_name(c):
     print "Please enter the first name of the contact you would like to add."
     c.first_name = raw_input().capitalize()

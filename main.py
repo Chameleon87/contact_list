@@ -19,7 +19,7 @@ def main():
         if b == "yes":
             new_contact_first_name(contact)
         else:
-            start()
-            
+            main()
+
 if __name__ == "__main__":
     main()
