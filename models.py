@@ -41,3 +41,14 @@ class Contact(object):
                 print "Save Successful!"
             except pickle.PickleError:
                 print "Cannot write to file"
+
+
+class ContactList(object):
+    def load(self):
+        if os.path.exists(self.filename):
+            with open(self.filename, 'r') as f:
+                try:
+                    loaded_dict = pickle.load(f)
+                except pickle.UnpicklingError:
+                    print "Invalid pickle file, loading failed."
+
