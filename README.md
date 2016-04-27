@@ -15,3 +15,5 @@ So far you have the following modules and their uses:
 </ul>
 
 As it grows in complication I'll add more modules and functionality.
+
+I have to create a contact_list model and move the methods on Contact to it... a few more changes and it will be functional.
