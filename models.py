@@ -14,18 +14,6 @@ class Contact(object):
         self.filename = filename
         self.load()
 
-    def load(self):
-        if os.path.exists(self.filename):
-            with open(self.filename, 'r') as f:
-                try:
-                    loaded_dict = pickle.load(f)
-                except pickle.UnpicklingError:
-                    print "Invalid pickle file, loading failed"
-
-            self.first_name = loaded_dict.get('first_name', '')
-            self.last_name = loaded_dict.get('last_name', '')
-            self.phone_number = loaded_dict.get('phone_number', '')
-
     def __str__(self):
         return "Full Name: {} {}\nPhone Number: {}".format(self.first_name, self.last_name, self.phone_number)
 
@@ -52,3 +40,6 @@ class ContactList(object):
                 except pickle.UnpicklingError:
                     print "Invalid pickle file, loading failed."
 
+        self.first_name = loaded_dict.get('first_name', '')
+        self.last_name = loaded_dict.get('last_name', '')
+        self.phone_number = loaded_dict.get('phone_number', '')
