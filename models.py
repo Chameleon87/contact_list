@@ -5,15 +5,6 @@ DEFAULT_FILENAME = "contact_list.txt"
 
 
 class Contact(object):
-    def __init__(self, filename=None):
-        self.first_name = ""
-        self.last_name = ""
-        self.phone_number = ""
-        if filename is None:
-            filename = DEFAULT_FILENAME
-        self.filename = filename
-        self.load()
-
     def __str__(self):
         return "Full Name: {} {}\nPhone Number: {}".format(self.first_name, self.last_name, self.phone_number)
 
@@ -32,6 +23,12 @@ class Contact(object):
 
 
 class ContactList(object):
+    def __init__(self, filename=None):
+        if filename is None:
+            filename = DEFAULT_FILENAME
+        self.filename = filename
+        self.load()
+
     def load(self):
         if os.path.exists(self.filename):
             with open(self.filename, 'r') as f:
@@ -39,7 +36,3 @@ class ContactList(object):
                     loaded_dict = pickle.load(f)
                 except pickle.UnpicklingError:
                     print "Invalid pickle file, loading failed."
-
-        self.first_name = loaded_dict.get('first_name', '')
-        self.last_name = loaded_dict.get('last_name', '')
-        self.phone_number = loaded_dict.get('phone_number', '')
