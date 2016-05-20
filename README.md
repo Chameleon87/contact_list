@@ -16,4 +16,4 @@ Felt like I needed to brush up on my fundamentals so I made a contact list where
 
 As it grows in complication I'll add more modules and functionality.
 
-I have to create a contact_list model and move the methods on Contact to it... a few more changes and it will be functional.
+I have to create a contact_list model and move the methods on Contact to it... a few more changes and it will be functional .
